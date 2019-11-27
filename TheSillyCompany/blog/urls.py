@@ -8,4 +8,5 @@ urlpatterns = [
     path('curtain.html', views.curtain, name='curtain'),
     path('armband.html', views.armband, name='armband'),
     path('nosotros.html', views.nosotros, name='nosotros'),
+    path('comunidad.html', views.comunidad, name='comunidad')
 ]

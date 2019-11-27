@@ -16,3 +16,6 @@ def armband(request):
 
 def nosotros(request):
     return render(request, 'blog/nosotros.html', {})
+
+def comunidad(request):
+    return render(request, 'blog/comunidad.html', {})
