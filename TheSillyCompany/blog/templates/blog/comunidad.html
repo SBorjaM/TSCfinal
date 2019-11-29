@@ -1,0 +1,20 @@
+{% extends 'blog/comunidad_base.html' %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static '../../static/css/nosotros.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '../../static/css/flexboxgrid.css' %}">
+<link rel="stylesheet" href="{% static '../../static/css/all.min.css' %}">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% block content %} 
+    {% for post in posts %}
+        <div class="post">
+            <div class="date"><br><br>
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
