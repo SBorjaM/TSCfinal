@@ -1,21 +1,86 @@
 {% extends 'blog/comunidad_base.html' %}
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static '../../static/css/nosotros.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '../../static/css/comunidad.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static '../../static/css/flexboxgrid.css' %}">
 <link rel="stylesheet" href="{% static '../../static/css/all.min.css' %}">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-{% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static '../../static/css/comunidad.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '../../static/css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="{% static '../../static/css/all.min.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+    <title>Comunidad</title>
+</head>
+<body>
+    <header id="header">
+		<nav class="menu">	
+			<div class="logo">
+				<a href="index.html"><img src="{% static '../../static/img/logolargo3.png' %}" alt="Logo"></a>
+				<a href="#" class="btn-menu" id="btn-menu"><i class="icono fas fa-bars"></i></a>
+			</div>
+			<div class="enlaces" id="enlaces">
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="#">Productos</a>
+						<ul>
+							<li class="current"><a href="u-desk.html">U-Desk</a></li>
+							<li><a href="curtain.html">Smart Curtain</a></li>
+							<li><a href="armband.html">Smart Armband</a></li>
+						</ul>
+					</li>
+					<li><a href="nosotros.html">Contáctanos</a></li>
+					<li><a href="logout">Cerrar Sesión</a></li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    
+    <main>
+        <div class="article">
+            {% block content %}
+                <div class="post">
+                    {% if post.published_date %}
+                        <div class="date">
+                            {{ post.published_date }}
+                        </div>
+                    {% endif %}
+                    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endblock %}
+        </div>   
+    </main>
+
+
+    <footer>
+        <nav class="footer">	
+            <div class="info">
+                <p>Copyright &copy; 2019 | The Silly Company</p>
             </div>
-        {% endif %}
-        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endblock %}
+            <div class="enlacesRs" id="enlacesRs">
+                <a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i> </a>
+                <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </nav>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static '../../../../static/js/headroom.min.js' %}"></script>
+    <script src="{% static '../../../../static/js/jquery.slides.js' %}"></script>
+    <script src="{% static '../../../../static/js/index.js' %}"></script>
+</body>
+</html>
+
+
