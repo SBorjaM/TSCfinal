@@ -25,9 +25,18 @@ urlpatterns = [
     path('armband.html', views.armband, name='armband'),
     path('nosotros.html', views.nosotros, name='nosotros'),
     path('comunidad.html', views.comunidad, name='comunidad'),
+    #login
+    path('welcome.html', views.welcome),
+    path('register', views.register),
+    path('login', views.login),
+    path('logout', views.logout),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
     url(r'^post/new/$', views.post_new, name='post_new'),
-    url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit')
+    url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
+    
+    
+
+    #path('admin/', admin.site.urls),
 ]
 
 
