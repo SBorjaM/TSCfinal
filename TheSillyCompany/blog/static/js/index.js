@@ -3,7 +3,7 @@ $(function(){
 	var headroom = new Headroom(header);
 	headroom.init();
 
-	//Menú Responsive 
+	//Menú Responsive
 	//
 	var ancho = $(window).width(),
 		enlaces = $('#enlaces'),
